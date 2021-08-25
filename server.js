@@ -15,3 +15,15 @@ mongoose.connect(process.env.MOGODB_URI || 'mongodb://localhost/pizza-hunt', {
     useNewUrlParser: true,
     useUnifiedTopology: true
 });
+
+// Use this to log mongo queries being executed
+mongoose.set('debug', true);
+
+app.listen(PORT, () => console.log(` Connected on localhost:${PORT}`));
+
+mongoose.connect(process.env.MOGODB_URI || 'mongodb://localhost/pizza-hunt', {
+    useFindAndModify: false,
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+
+});
