@@ -115,7 +115,7 @@ function handleNewCommentSubmit(event) {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify(formData)
-    }
+    })
     .then(reponse => {
         if (!reponse.ok) {
             throw new Error('Something went wrong.');
@@ -130,6 +130,7 @@ function handleNewCommentSubmit(event) {
         console.log(err);
     })
 }
+
 function handleNewReplySubmit(event) {
     event.preventDefault();
 
@@ -169,7 +170,14 @@ function handleNewReplySubmit(event) {
         console.log(err);
     });
 }
-$backBtn.addEventListener
+$backBtn.addEventListener('click', function () {
+    window.kistory.back();
+});
+
+$newCommentForm.addEventListener('submit', handleNewCommentSubmit);
+$commentSection.addEventListener('submit', handleNewCommentSubmit);
+
+getPizza();
 
     
 
